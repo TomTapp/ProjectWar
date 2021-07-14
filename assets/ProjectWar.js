@@ -1,6 +1,6 @@
 class Game{
     constructor(gameName){
-        thisgameName = gameName;
+        this.gameName = gameName;
     }
 
     shuffle(players){
@@ -13,15 +13,7 @@ class Game{
 
 }
 
-    function shuffle(players){
-// Creates  a collection of cards conformed of the amount of decks based on the amount of players
-    for(let i = 0; i < players.length; i++){
 
-    }
-
-}
-
-}
 
 class War extends Game{
     constructor(){
