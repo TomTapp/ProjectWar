@@ -1,0 +1,31 @@
+body {
+  background-image: url("table.jpeg");
+  background-color: black;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  margin: 0px;
+  padding: 10rem;
+  border: 2rem rgb(0, 0, 0) solid;
+}
+
+.cardBox {
+  color: white;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 15% 0%;
+}
+
+.card {
+display: block;
+  background-color: rgb(163, 56, 56);
+  border: solid 2px rgb(244, 255, 179);
+  border-radius: 10px;
+  padding: 1rem;
+  margin: 0%;
+}
+
+#warZone {
+    width:fit-content;
+}
