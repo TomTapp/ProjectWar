@@ -36,11 +36,20 @@
     top: 13%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: white;
+    color: rgb(255, 255, 255);
   }
 
-  /* Container holding the image and the text */
-  
+  /* (*) text */
+  .centeredGoofy {
+    position: absolute;
+    top: 95%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+    color: rgb(185, 185, 185);
+  }
+
+
+
   .container {
     position: relative;
   }
@@ -48,8 +57,8 @@
   /* Player Text Box */
   .text-block-player {
     position: absolute;
-    bottom: 30rem;
-    right: 50rem;
+    bottom: 25rem;
+    right: 53rem;
     background-color: rgb(163, 56, 56);
     color: white;
     padding: 1% 2% 2%;
@@ -60,12 +69,22 @@
   /* Computer Text Box */
   .text-block-computer {
     position: absolute;
-    bottom: 30rem;
-    right: 5rem;
+    bottom: 25rem;
+    right: 0rem;
     background-color: rgb(163, 56, 56);
     color: white;
     padding: 1% 2% 2%;
     border: rgb(244, 255, 179) solid 2px;
     border-radius: 10px;
   }
-
+   /* Warzone Text Box */
+   .text-block-warzone {
+    position: absolute;
+    bottom: 25rem;
+    right: 20.5rem;
+    background-color: rgb(163, 56, 56);
+    color: white;
+    padding: 1% 2% 2%;
+    border: rgb(244, 255, 179) solid 2px;
+    border-radius: 10px;
+  }
