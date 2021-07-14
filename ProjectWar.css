@@ -1,12 +1,71 @@
 .background {
-    background-color: rgb(255, 254, 209);
+  background-color: rgb(0, 0, 0);
 }
 
 .table {
-    background-color: rgb(87, 143, 31);
+  background-color: rgb(87, 143, 31);
 }
 
 .resize {
-    width: 100%;
-    height: auto;
+  width: 100%;
+  height: auto;
 }
+
+.maintxt {
+  position: relative;
+  
+}
+
+.maintxt > img,
+.overlay-text {
+  position:absolute;
+}
+
+/* Centered text */
+.centered {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+  }
+
+  /* Centered Lower text */
+.centeredLower {
+    position: absolute;
+    top: 13%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+  }
+
+  /* Container holding the image and the text */
+  
+  .container {
+    position: relative;
+  }
+  
+  /* Player Text Box */
+  .text-block-player {
+    position: absolute;
+    bottom: 30rem;
+    right: 50rem;
+    background-color: rgb(163, 56, 56);
+    color: white;
+    padding: 1% 2% 2%;
+    border: rgb(244, 255, 179) solid 2px;
+    border-radius: 10px;
+  }
+
+  /* Computer Text Box */
+  .text-block-computer {
+    position: absolute;
+    bottom: 30rem;
+    right: 5rem;
+    background-color: rgb(163, 56, 56);
+    color: white;
+    padding: 1% 2% 2%;
+    border: rgb(244, 255, 179) solid 2px;
+    border-radius: 10px;
+  }
+
