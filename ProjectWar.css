@@ -1,0 +1,12 @@
+.background {
+    background-color: rgb(255, 254, 209);
+}
+
+.table {
+    background-color: rgb(87, 143, 31);
+}
+
+.resize {
+    width: 100%;
+    height: auto;
+}
