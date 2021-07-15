@@ -1,8 +1,16 @@
+// //////////////////////////////////////////////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ 
+
+// Author: Jaime Cobo Nayar 
+// Note: This code has been written as part of an OOP JavaScript project, the idea of the project is to replicate the WAR cards game,
+// using classes and its corresponding instances, everything was made for educational purposes only. 
+
+// \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\//////////////////////////////////////////////////////////////////////////// 
+
+
 class Game{
-classes_functions
     gameName = "";
     decksNumber = 0;
-    cardsDeck = [1, 2, 3, 4];
+    cardsDeck = [1, 2];
     oppot01_Cards = [];
     oppot02_Cards = [];
 
@@ -78,18 +86,39 @@ class War{
         this.player02_cards = player02.playerSet;
         this.player01_score = player01.score;
         this.player02_score = player02.score;
+        }
+     
+    // Function sleep to pause the execution of the code and make the game visual
+    sleep = function(time){
+        return new Promise((resolve) => setTimeout(resolve, time));
     }
 
-    // battle = function(opponet01_Cards, opponet02_Cards){
-        battle = function(){
-        
 
-        let cardsOnTable = [];
-        let numOfCardsOnTable = 0;
-        // let score_01, score_02 = 0;
+    battle = function(){  
+
+        let roundsCounter = 0;
+        let cardsDeckSize = this.player01_cards.length + this.player02_cards.length;
+        console.log("THE SIZE OF THE DECK OF CARDS IS: " + cardsDeckSize + " CARDS");
+
         
-        while( this.player01_cards.length > 0 || this.player02_cards.length > 0 ){
+        while( (this.player01_cards.length !== cardsDeckSize) || (this.player02_cards.length !== cardsDeckSize) ){
             
+            if((this.player01_cards.length === 0) && (this.player02_cards.length === 0)){
+                console.log("THERE WAS A TIE, NO ONE WINS, BOTH PLAYERS RUN OUT OF CARDS!");
+                break;
+                
+            }            if(this.player01_cards.length === 0){
+                console.log(this.player01_name + " RUN OUT OF CARDS!");
+                break;
+            }
+            if(this.player02_cards.length === 0){
+                console.log(this.player02_name + " RUN OUT OF CARDS!")
+                break;
+            }
+
+            let cardsOnTable = [];
+            let numOfCardsOnTable = 0;
+
             console.log("Cards of " + this.player01_name + " before putting a card on the table " + this.player01_cards);
             let cardOnTable_01 = this.player01_cards.shift();
             console.log(this.player01_name + " just put this card on the table: " + cardOnTable_01);
@@ -100,79 +129,72 @@ class War{
             console.log(this.player02_name +" just put this card on the table: " + cardOnTable_02);
             console.log("Cards of " + this.player02_name + " after putting the card on the table " + this.player02_cards);
         
+            // sleep(1000).then(() => {
+
+
+                if(cardOnTable_01 === cardOnTable_02){
+                    // this.sleep(2000);
+                    numOfCardsOnTable += 2;
+                    cardsOnTable.push(cardOnTable_01, cardOnTable_02);
+                    console.log(" ################################### This are the cards on the table right now: " + cardsOnTable);
+                    console.group("The number of cards on the table is: " + numOfCardsOnTable);
+                    console.log("This are the cards on the table right now: " + cardsOnTable);
+                    console.log("TIE");
+                
+                }else if(cardOnTable_01 > cardOnTable_02){
+                    // this.sleep(2000);
+                    numOfCardsOnTable += 2;
+                    cardsOnTable.push(cardOnTable_01, cardOnTable_02);
+                    console.log(" ################################### This are the cards on the table right now: " + cardsOnTable);
+                    this.player01_cards = this.player01_cards.concat(cardsOnTable);
+                    console.log("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ This are the cards that " + this.player01_name + " now has " + this.player01_cards);
+                    cardsOnTable = [];
+                    numOfCardsOnTable = 0;
+                    console.log(this.player01_name + " wins! " +  "now has "  + this.player01_cards.length + " cards");
+                
+                }else if(cardOnTable_01 < cardOnTable_02){
+                    // this.sleep(2000);
+                    numOfCardsOnTable += 2;
+                    cardsOnTable.push(cardOnTable_01, cardOnTable_02);
+                    console.log(" ################################### This are the cards on the table right now: " + cardsOnTable);
+                    this.player02_cards = this.player02_cards.concat(cardsOnTable);
+                    console.log("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ This are the cards that " + this.player02_name + " now has " + this.player02_cards);
+                    cardsOnTable = [];
+                    numOfCardsOnTable = 0;
+                    console.log(this.player02_name + " wins! " +  "now has "  + this.player02_cards.length + " cards");
             
-            if(cardOnTable_01 === cardOnTable_02){
-                numOfCardsOnTable += 2;
-                cardsOnTable.push(cardOnTable_01, cardOnTable_02);
-                console.log(" ################################### This are the cards on the table right now: " + cardsOnTable);
-                console.group("The number of cards on the table is: " + numOfCardsOnTable);
-                console.log("This are the cards on the table right now: " + cardsOnTable);
-                console.log("TIE");
+                }else if((this.player01_cards.length !== cardsDeckSize) || (this.player02_cards.length !== cardsDeckSize)){
+                    break;
+                }
+
+                roundsCounter++;
+                if(roundsCounter === 100){
+                    console.log("UNDEFINED, NO ONE WINS");
+                    break;
+                }
+
+            // });
             
-            }else if(cardOnTable_01 > cardOnTable_02){
-                numOfCardsOnTable += 2;
-                cardsOnTable.push(cardOnTable_01, cardOnTable_02);
-                console.log(" ################################### This are the cards on the table right now: " + cardsOnTable);
-                this.player01_cards = this.player01_cards.concat(cardsOnTable);
-                console.log("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ This are the cards that " + this.player01_name + " now has " + this.player01_cards);
-                cardsOnTable = [];
-                numOfCardsOnTable = 0;
-                // console.log("");
-                // console.log(": " + );
-                console.log(this.player01_name + " wins! " +  "now has "  + this.player01_cards.length + " cards");
-            
-            }else if(cardOnTable_01 < cardOnTable_02){
-                numOfCardsOnTable += 2;
-                cardsOnTable.push(cardOnTable_01, cardOnTable_02);
-                console.log(" ################################### This are the cards on the table right now: " + cardsOnTable);
-                this.player02_cards = this.player02_cards.concat(cardsOnTable);
-                console.log("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ This are the cards that " + this.player02_name + " now has " + this.player02_cards);
-                cardsOnTable = [];
-                numOfCardsOnTable = 0;
-                console.log(this.player02_name + " wins! " +  "now has "  + this.player02_cards.length + " cards");
-                // console.log("Player 2 wins! - Opponet 2 has = " + player02_cards.length + " cards");
-            }
         }
-        if(this.player01_cards.length === 0){
+
+
+            
+        
+        
+        if(this.player01_cards.length === cardsDeckSize){
+            this.player01_score += 1;
+            this.winner = this.player01_name;
+            console.log("THE WINNER IS: " + "\"\"\" " + this.winner + " \"\"\"" );
+        }else if (this.player02_cards.length === cardsDeckSize){
             this.player02_score += 1;
             this.winner = this.player02_name;
             console.log("THE WINNER IS: " + "\"\"\" " + this.winner + " \"\"\"" );
-        }else{
-            this.player01_score += 1;
-            this.winner = this.player01_name;
-            console.log("THE WINNER IS: " + "\"\"\
-            
-            
-            " " + this.winner + " \"\"\"" );
         }
-=======
-    constructor(gameName){
-        this.gameName = gameName;
-    }
-
-    shuffle(players){
-        // Creates  a collection of cards conformed of the amount of decks based on the amount of players
-            for(let i = 0; i < players.length; i++){
-        
-            }
-        
-        }
-
-}
-
-<<<<<<< HEAD
-
-=======
-    function shuffle(players){
-// Creates  a collection of cards conformed of the amount of decks based on the amount of players
-    for(let i = 0; i < players.length; i++){
-      main
 
     }
 
 }
 
-classes_functions
 class Player {
     name = "";
     playerSet = []
@@ -183,6 +205,13 @@ class Player {
     };
 
 }
+
+
+
+function sleep (time) {
+    return new Promise((resolve) => setTimeout(resolve, time));
+  }
+
 
 let newGame = new Game("war1", 2);
 console.log("newGame values are:");
@@ -229,29 +258,3 @@ console.log(newWar01.battle());
 
 
 
-
-
-}
->>>>>>> 4d81ad04fdfa1e7658084c3f32e37c893b6104ae
-
-class War extends Game{
-    constructor(){
-
-    }
-
-
-}
-
-class Payer {
-    constructor(name, score) {
-      this.name = name;
-      this.score = score;
-    }
-  }
-
-
-function players(numOfPlayers){
-    // Creates a new player
-
-}
-main
