@@ -163,19 +163,62 @@ class War{
                     numOfCardsOnTable = 0;
                     console.log(this.player02_name + " wins! " +  "now has "  + this.player02_cards.length + " cards");
             
-                }else if((this.player01_cards.length !== cardsDeckSize) || (this.player02_cards.length !== cardsDeckSize)){
-                    break;
-                }
+            if(cardOnTable_01 === cardOnTable_02){
+                numOfCardsOnTable += 2;
+                cardsOnTable.push(cardOnTable_01, cardOnTable_02);
+                console.log(" ################################### This are the cards on the table right now: " + cardsOnTable);
+                console.group("The number of cards on the table is: " + numOfCardsOnTable);
+                console.log("This are the cards on the table right now: " + cardsOnTable);
+                console.log("TIE");
+            
+            }else if(cardOnTable_01 > cardOnTable_02){
+                numOfCardsOnTable += 2;
+                cardsOnTable.push(cardOnTable_01, cardOnTable_02);
+                console.log(" ################################### This are the cards on the table right now: " + cardsOnTable);
+                this.player01_cards = this.player01_cards.concat(cardsOnTable);
+                console.log("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ This are the cards that " + this.player01_name + " now has " + this.player01_cards);
+                cardsOnTable = [];
+                numOfCardsOnTable = 0;
+                // console.log("");
+                // console.log(": " + );
+                console.log(this.player01_name + " wins! " +  "now has "  + this.player01_cards.length + " cards");
+            
+            }else if(cardOnTable_01 < cardOnTable_02){
+                numOfCardsOnTable += 2;
+                cardsOnTable.push(cardOnTable_01, cardOnTable_02);
+                console.log(" ################################### This are the cards on the table right now: " + cardsOnTable);
+                this.player02_cards = this.player02_cards.concat(cardsOnTable);
+                console.log("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ This are the cards that " + this.player02_name + " now has " + this.player02_cards);
+                cardsOnTable = [];
+                numOfCardsOnTable = 0;
+                console.log(this.player02_name + " wins! " +  "now has "  + this.player02_cards.length + " cards");
+                // console.log("Player 2 wins! - Opponet 2 has = " + player02_cards.length + " cards");
+            }else if((this.player01_cards.length !== cardsDeckSize) || (this.player02_cards.length !== cardsDeckSize)){
+                break;
+            }
+    
+            roundsCounter++;
+            if(roundsCounter === 100){
+                console.log("UNDEFINED, NO ONE WINS");
+                break;
+            }
 
-                roundsCounter++;
-                if(roundsCounter === 100){
-                    console.log("UNDEFINED, NO ONE WINS");
-                    break;
-                }
+        }
+
+
+        if(this.player01_cards.length === 0){
+            this.player02_score += 1;
+            this.winner = this.player02_name;
+            console.log("THE WINNER IS: " + "\"\"\" " + this.winner + " \"\"\"" );
+        }else{
+            this.player01_score += 1;
+            this.winner = this.player01_name;
+            console.log("THE WINNER IS: " + "\"\"\" " + this.winner + " \"\"\"" );
+        }
 
             // });
             
-        }
+
 
 
             
@@ -195,6 +238,10 @@ class War{
 
 }
 
+<<<<<<< HEAD
+=======
+}
+>>>>>>> b9af44cb46f33de0824c0c7b801eae2108b260f5
 
 
 class Player {
@@ -259,7 +306,4 @@ console.log(newWar01.battle());
 
 let playerScore1 = document.getElementById("playerscore");
 playerScore1.innerText = "Cards remaining = " + player01.score
-
-let playerScore2 = document.getElementById("npcscore");
-playerScore1.innerText = "Cards remaining = " + player02.score
 
