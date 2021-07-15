@@ -140,12 +140,9 @@ class War{
         }else{
             this.player01_score += 1;
             this.winner = this.player01_name;
-            console.log("THE WINNER IS: " + "\"\"\
-            
-            
-            " " + this.winner + " \"\"\"" );
+            console.log("THE WINNER IS: " + "\"\"\" " + this.winner + " \"\"\"" );
         }
-=======
+
     constructor(gameName){
         thisgameName = gameName;
     }
@@ -227,8 +224,6 @@ console.log(newWar01.battle());
 
 
 
-
-}
 
 class War extends Game{
     constructor(){
