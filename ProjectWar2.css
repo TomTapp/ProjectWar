@@ -12,13 +12,13 @@ body {
 .cardBox {
   color: white;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
-  margin: 15% 0%;
+  margin: 10% 0%;
 }
 
 .card {
-display: block;
+  display: block;
   background-color: rgb(163, 56, 56);
   border: solid 2px rgb(244, 255, 179);
   border-radius: 10px;
@@ -27,5 +27,112 @@ display: block;
 }
 
 #warZone {
-    width:fit-content;
+  width: fit-content;
 }
+
+.pageText {
+  text-align: center;
+  color: white;
+}
+
+.drawButton {
+  position: relative;
+  background-color: rgb(163, 56, 56);
+  color: white;
+  border: rgb(244, 255, 179) solid 1px;
+  border-radius: 5px;
+  text-align: center;
+  width: 7.5rem;
+  font-size: x-large;
+  top: -8rem;
+  right: -36.5rem;
+}
+
+.shuffleButton {
+  position: relative;
+  background-color: rgb(163, 56, 56);
+  color: white;
+  border: rgb(244, 255, 179) solid 1px;
+  border-radius: 5px;
+  text-align: center;
+  width: 8rem;
+  font-size: x-large;
+  top: 8rem;
+  right: -36.5rem;
+}
+
+/* Attempt to use some animations */
+
+.animation1 {
+  position: relative;
+  animation-name: shiftRight;
+  animation-fill-mode: forwards;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  top: 0rem;
+}
+
+@keyframes shiftRight {
+  0% {
+    left: 1.2rem;
+    top: -30.7rem;
+  }
+  50% {
+    left: 1.2rem;
+    top: -30.7rem;
+  }
+  62% {
+    left: 7rem;
+    top: -25rem;
+  }
+  74% {
+    left: 15rem;
+    top: -23rem;
+  }
+  86% {
+    left: 21rem;
+    top: -25rem;
+  }
+  100% {
+    left: 27.9rem;
+    top: -32.5rem;
+  }
+}
+
+.animation2 {
+  position: relative;
+  animation-name: shiftLeft;
+  animation-fill-mode: forwards;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  top: 0rem;
+}
+
+@keyframes shiftLeft {
+  0% {
+    left: 54.6rem;
+    top: -31rem;
+  }
+  50% {
+    left: 54.6rem;
+    top: -31rem;
+  }
+  62% {
+    left: 49rem;
+    top: -36rem;
+  }
+  74% {
+    left: 42rem;
+    top: -38rem;
+  }
+  86% {
+    left: 35rem;
+    top: -36rem;
+  }
+  100% {
+    left: 27.9rem;
+    top: -32.5rem;
+  }
+}
+
+/* Attempt to use some animations */
