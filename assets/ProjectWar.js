@@ -238,10 +238,7 @@ class War{
 
 }
 
-<<<<<<< HEAD
-=======
 }
->>>>>>> b9af44cb46f33de0824c0c7b801eae2108b260f5
 
 
 class Player {
@@ -304,9 +301,13 @@ console.log("");
 let newWar01 = new War(player01, player02);
 console.log(newWar01);
 console.log(newWar01.battle());
-}
+
 
 
 let playerScore1 = document.getElementById("playerscore");
-playerScore1.innerText = "Cards remaining = " + player01.score
+playerScore1.innerText = "Cards remaining = " + player01.score;
 
+let playerScore2 = document.getElementById("npcscore");
+playerScore2.innerText = "Cards remaining = " + player02.score;
+
+}
