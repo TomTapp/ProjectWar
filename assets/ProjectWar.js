@@ -238,7 +238,10 @@ class War{
 
 }
 
+<<<<<<< HEAD
+=======
 }
+>>>>>>> b9af44cb46f33de0824c0c7b801eae2108b260f5
 
 
 class Player {
@@ -304,4 +307,6 @@ console.log(newWar01.battle());
 }
 
 
+let playerScore1 = document.getElementById("playerscore");
+playerScore1.innerText = "Cards remaining = " + player01.score
 
