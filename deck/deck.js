@@ -1,5 +1,3 @@
-/** @format */
-
 deck = function () {
   let suits = ['H', 'C', 'D', 'S'];
   let ranks = [
