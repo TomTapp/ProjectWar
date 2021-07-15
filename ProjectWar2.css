@@ -1,0 +1,182 @@
+body {
+  background-image: url("table.jpeg");
+  background-color: black;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  margin: 0px;
+  padding: 10rem;
+  border: 2rem rgb(0, 0, 0) solid;
+}
+
+.cardBox {
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10% 0%;
+}
+
+.card {
+  display: block;
+  background-color: rgb(163, 56, 56);
+  border: solid 2px rgb(244, 255, 179);
+  border-radius: 10px;
+  padding: 1rem;
+  margin: 0%;
+}
+
+#warZone {
+  width: fit-content;
+}
+
+.pageText {
+  text-align: center;
+  color: white;
+}
+
+.drawButton {
+  position: relative;
+  background-color: rgb(163, 56, 56);
+  color: white;
+  border: rgb(244, 255, 179) solid 1px;
+  border-radius: 5px;
+  text-align: center;
+  width: 7.5rem;
+  font-size: x-large;
+  top: -8rem;
+  right: -36.5rem;
+}
+
+.shuffleButton {
+  position: relative;
+  background-color: rgb(163, 56, 56);
+  color: white;
+  border: rgb(244, 255, 179) solid 1px;
+  border-radius: 5px;
+  text-align: center;
+  width: 8rem;
+  font-size: x-large;
+  top: 8rem;
+  right: -36.5rem;
+}
+
+.animation1 {
+  position: relative;
+  animation-name: shiftRight;
+  animation-fill-mode: forwards;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  top: 0rem;
+}
+
+@keyframes shiftRight {
+  0% {
+    left: 1.2rem;
+    top: -30.7rem;
+  }
+  50% {
+    left: 1.2rem;
+    top: -30.7rem;
+  }
+  55% {
+    left: 5rem;
+    top: -26rem;
+  }
+  60% {
+    left: 7.5rem;
+    top: -23rem;
+  }
+  65% {
+    left: 10rem;
+    top: -21rem;
+  }
+  70% {
+    left: 12.5rem;
+    top: -20rem;
+  }
+  75% {
+    left: 15rem;
+    top: -20rem;
+  }
+  80% {
+    left: 17.5rem;
+    top: -21rem;
+  }
+  85% {
+    left: 20rem;
+    top: -23rem;
+  }
+  90% {
+    left: 22.5rem;
+    top: -26rem;
+  }
+  95% {
+    left: 25rem;
+    top: -30rem;
+  }
+  100% {
+    left: 27.9rem;
+    top: -32.5rem;
+  }
+}
+
+.animation2 {
+  position: relative;
+  animation-name: shiftLeft;
+  animation-fill-mode: forwards;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  top: 0rem;
+}
+
+@keyframes shiftLeft {
+  0% {
+    left: 54.6rem;
+    top: -31rem;
+  }
+  50% {
+    left: 54.6rem;
+    top: -31rem;
+  }
+  55% {
+    left: 51rem;
+    top: -35rem;
+  }
+  60% {
+    left: 47.5rem;
+    top: -39rem;
+  }
+  65% {
+    left: 45rem;
+    top: -42rem;
+  }
+  70% {
+    left: 42.5rem;
+    top: -44rem;
+  }
+  75% {
+    left: 40rem;
+    top: -45rem;
+  }
+  80% {
+    left: 37.5rem;
+    top: -45rem;
+  }
+  85% {
+    left: 35rem;
+    top: -43rem;
+  }
+  90% {
+    left: 32.5rem;
+    top: -40rem;
+  }
+  95% {
+    left: 30rem;
+    top: -36rem;
+  }
+  100% {
+    left: 27.9rem;
+    top: -32.5rem;
+  }
+}
