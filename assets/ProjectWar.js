@@ -274,6 +274,8 @@ console.log(shuffled);
 
 console.log("######################################################################");
 
+
+function letsPlay(){ 
 let indiviualSets =  newGame.dealCards(shuffled);
 console.log(indiviualSets);
 
@@ -299,6 +301,7 @@ console.log("");
 let newWar01 = new War(player01, player02);
 console.log(newWar01);
 console.log(newWar01.battle());
+}
 
 
 
