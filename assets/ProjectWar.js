@@ -195,6 +195,8 @@ class War{
 
 }
 
+
+
 class Player {
     name = "";
     playerSet = []
@@ -255,6 +257,9 @@ console.log(newWar01);
 console.log(newWar01.battle());
 
 
+let playerScore1 = document.getElementById("playerscore");
+playerScore1.innerText = "Cards remaining = " + player01.score
 
-
+let playerScore2 = document.getElementById("npcscore");
+playerScore1.innerText = "Cards remaining = " + player02.score
 
