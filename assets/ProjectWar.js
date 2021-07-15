@@ -193,8 +193,19 @@ class War{
                 numOfCardsOnTable = 0;
                 console.log(this.player02_name + " wins! " +  "now has "  + this.player02_cards.length + " cards");
                 // console.log("Player 2 wins! - Opponet 2 has = " + player02_cards.length + " cards");
+            }else if((this.player01_cards.length !== cardsDeckSize) || (this.player02_cards.length !== cardsDeckSize)){
+                break;
             }
+    
+            roundsCounter++;
+            if(roundsCounter === 100){
+                console.log("UNDEFINED, NO ONE WINS");
+                break;
+            }
+
         }
+
+
         if(this.player01_cards.length === 0){
             this.player02_score += 1;
             this.winner = this.player02_name;
@@ -204,15 +215,6 @@ class War{
             this.winner = this.player01_name;
             console.log("THE WINNER IS: " + "\"\"\" " + this.winner + " \"\"\"" );
         }
-                }else if((this.player01_cards.length !== cardsDeckSize) || (this.player02_cards.length !== cardsDeckSize)){
-                    break;
-                }
-
-                roundsCounter++;
-                if(roundsCounter === 100){
-                    console.log("UNDEFINED, NO ONE WINS");
-                    break;
-                }
 
             // });
             
@@ -235,6 +237,9 @@ class War{
     }
 
 }
+
+}
+
 
 class Player {
     name = "";
@@ -297,28 +302,3 @@ console.log(newWar01.battle());
 
 
 
-
-
-
-
-class War extends Game{
-    constructor(){
-
-    }
-
-
-}
-
-class Payer {
-    constructor(name, score) {
-      this.name = name;
-      this.score = score;
-    }
-  }
-
-
-function players(numOfPlayers){
-    // Creates a new player
-
-}
-main
