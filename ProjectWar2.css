@@ -61,8 +61,6 @@ body {
   right: -36.5rem;
 }
 
-/* Attempt to use some animations */
-
 .animation1 {
   position: relative;
   animation-name: shiftRight;
@@ -81,17 +79,41 @@ body {
     left: 1.2rem;
     top: -30.7rem;
   }
-  62% {
-    left: 7rem;
-    top: -25rem;
+  55% {
+    left: 5rem;
+    top: -26rem;
   }
-  74% {
-    left: 15rem;
+  60% {
+    left: 7.5rem;
     top: -23rem;
   }
-  86% {
-    left: 21rem;
-    top: -25rem;
+  65% {
+    left: 10rem;
+    top: -21rem;
+  }
+  70% {
+    left: 12.5rem;
+    top: -20rem;
+  }
+  75% {
+    left: 15rem;
+    top: -20rem;
+  }
+  80% {
+    left: 17.5rem;
+    top: -21rem;
+  }
+  85% {
+    left: 20rem;
+    top: -23rem;
+  }
+  90% {
+    left: 22.5rem;
+    top: -26rem;
+  }
+  95% {
+    left: 25rem;
+    top: -30rem;
   }
   100% {
     left: 27.9rem;
@@ -117,16 +139,40 @@ body {
     left: 54.6rem;
     top: -31rem;
   }
-  62% {
-    left: 49rem;
-    top: -36rem;
+  55% {
+    left: 51rem;
+    top: -35rem;
   }
-  74% {
-    left: 42rem;
-    top: -38rem;
+  60% {
+    left: 47.5rem;
+    top: -39rem;
   }
-  86% {
+  65% {
+    left: 45rem;
+    top: -42rem;
+  }
+  70% {
+    left: 42.5rem;
+    top: -44rem;
+  }
+  75% {
+    left: 40rem;
+    top: -45rem;
+  }
+  80% {
+    left: 37.5rem;
+    top: -45rem;
+  }
+  85% {
     left: 35rem;
+    top: -43rem;
+  }
+  90% {
+    left: 32.5rem;
+    top: -40rem;
+  }
+  95% {
+    left: 30rem;
     top: -36rem;
   }
   100% {
@@ -134,5 +180,3 @@ body {
     top: -32.5rem;
   }
 }
-
-/* Attempt to use some animations */
