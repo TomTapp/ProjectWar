@@ -163,7 +163,6 @@ class War{
                     numOfCardsOnTable = 0;
                     console.log(this.player02_name + " wins! " +  "now has "  + this.player02_cards.length + " cards");
             
-<<<<<<< HEAD:assets/ProjectWar.js
             if(cardOnTable_01 === cardOnTable_02){
                 numOfCardsOnTable += 2;
                 cardsOnTable.push(cardOnTable_01, cardOnTable_02);
@@ -205,11 +204,6 @@ class War{
             this.winner = this.player01_name;
             console.log("THE WINNER IS: " + "\"\"\" " + this.winner + " \"\"\"" );
         }
-
-    constructor(gameName){
-        thisgameName = gameName;
-    }
-=======
                 }else if((this.player01_cards.length !== cardsDeckSize) || (this.player02_cards.length !== cardsDeckSize)){
                     break;
                 }
@@ -222,8 +216,7 @@ class War{
 
             // });
             
-        }
->>>>>>> a6bf6478f219fa30e625cb35876481b5585b0453:assets/ProjectWar_ultimate.js
+
 
 
             
@@ -306,7 +299,6 @@ console.log(newWar01.battle());
 
 
 
-<<<<<<< HEAD:assets/ProjectWar.js
 
 
 class War extends Game{
@@ -330,5 +322,3 @@ function players(numOfPlayers){
 
 }
 main
-=======
->>>>>>> a6bf6478f219fa30e625cb35876481b5585b0453:assets/ProjectWar_ultimate.js
