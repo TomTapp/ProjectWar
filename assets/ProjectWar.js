@@ -139,7 +139,10 @@ class War{
         }else{
             this.player01_score += 1;
             this.winner = this.player01_name;
-            console.log("THE WINNER IS: " + "\"\"\" " + this.winner + " \"\"\"" );
+            console.log("THE WINNER IS: " + "\"\"\
+            
+            
+            " " + this.winner + " \"\"\"" );
         }
 
     }
@@ -156,12 +159,6 @@ class Player {
     };
 
 }
-
-
-
-
-
-
 
 let newGame = new Game("war1", 2);
 console.log("newGame values are:");
