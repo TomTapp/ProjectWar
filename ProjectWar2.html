@@ -19,6 +19,8 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
       rel="stylesheet"
     />
+    <script src="assets/ProjectWar.js" async defer></script>
+
     <title>Project War</title>
   </head>
   <body style="font-family: 'Montserrat', sans-serif">
@@ -94,11 +96,26 @@
       <row>
         <column>
           <div
+            id = "draw_button"
+            class="drawButton"
+            type="button"
+            onclick="drawButtonOutFunct()"
+          >
+            Draw!
+          </div>
+        </column>
+      </row>
+      <!-- Draw Button -->
+
+      <!-- Draw Button -->
+      <row>
+        <column>
+          <div
             class="drawButton"
             type="button"
             onclick="letsPlay()"
           >
-            Draw!
+            PLAY!
           </div>
         </column>
       </row>
