@@ -81,36 +81,31 @@ class War{
     player01_score;
     player02_score;
     winner = "";
-    drawCounterX = 0;
-    drawCounterY = 0;
+    drawCounter = 0;
     cardsOnTable = [];
     numOfCardsOnTable = 0;
     clickEnabled;
 
-    constructor(player01, player02, booleamParam){
+    constructor(player01, player02, booleanParam){
         this.player01_name = player01.name;
         this.player02_name = player02.name;
         this.player01_cards = player01.playerSet;
         this.player02_cards = player02.playerSet;
         this.player01_score = player01.score;
         this.player02_score = player02.score;
-        this.clickEnabled = booleamParam;
+        this.clickEnabled = booleanParam;
         }
     
     drawButton = function(){
         if (this.clickEnabled === true){
             this.battle( this.player01_cards[0], this.player02_cards[0] );
-            // this.battle( this.player01_cards[this.drawCounterX], this.player02_cards[this.drawCounterX] );
-            // this.drawCounterX = this.drawCounterX + 1;
-            this.drawCounterY++;
-            console.log("ROUND NUMBER: \'\' " + this.drawCounterY + " \'\'");
+            this.drawCounter++;
+            console.log("ROUND NUMBER: \'\' " + this.drawCounter + " \'\'");
+            document.getElementById('round').innerHTML = "ROUND # " + this.drawCounter + " #";
         }
     }
 
     battle = function(player_one_card, player_two_card){  
-
-        
-        // if (this.clickEnabled === true){
 
     
                 let cardsDeckSize = this.player01_cards.length + this.player02_cards.length;
@@ -119,11 +114,13 @@ class War{
                 console.log("Cards of " + this.player01_name + " before putting a card on the table " + this.player01_cards);
                 let cardOnTable_01 = this.player01_cards.shift();
                 console.log(this.player01_name + " just put this card on the table: " + cardOnTable_01);
+                document.getElementById("player01_card").src= "JPEG/" + player_one_card.imgFileName;
                 console.log("Cards of " + this.player01_name + " after putting the card on the table " + this.player01_cards);
     
                 console.log("Cards of " + this.player02_name + " before putting a card on the table " + this.player02_cards);
                 let cardOnTable_02 = this.player02_cards.shift();
                 console.log(this.player02_name +" just put this card on the table: " + cardOnTable_02);
+                document.getElementById("player02_card").src= "JPEG/" + player_two_card.imgFileName;
                 console.log("Cards of " + this.player02_name + " after putting the card on the table " + this.player02_cards);
             
             
@@ -134,26 +131,41 @@ class War{
                     console.group("The number of cards on the table is: " + this.numOfCardsOnTable);
                     console.log("This are the cards on the table right now: " + this.cardsOnTable);
                     console.log("TIE");
+                    document.getElementById('winner').innerHTML = "TIE";
+                    // document.getElementById('result').innerHTML = "TIE";
                 
                 }else if(player_one_card.card_power > player_two_card.card_power){
                     this.numOfCardsOnTable += 2;
+                    this.player01_score++;
+                    document.getElementById('player01_points').innerHTML = "Points = " + this.player01_score;
                     this.cardsOnTable.push(player_one_card, player_two_card);
                     console.log(" ################################### This are the cards on the table right now: " + this.cardsOnTable);
                     this.player01_cards = this.player01_cards.concat(this.cardsOnTable);
                     console.log("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ This are the cards that " + this.player01_name + " now has: " + this.player01_cards);
                     this.cardsOnTable = [];
                     this.numOfCardsOnTable = 0;
+                    document.getElementById('playerscore').innerHTML = "Cards remaining = " + this.player01_cards.length;
+                    document.getElementById('npcscore').innerHTML = "Cards remaining = " + this.player02_cards.length;
                     console.log(this.player01_name + " wins this round! " +  "now has "  + this.player01_cards.length + " cards");
+                    document.getElementById('winner').innerHTML = this.player01_name;
+                    // document.getElementById('winner').innerHTML = this.player01_name + "\n" + "WINS";
+                    
                 
                 }else if(player_one_card.card_power < player_two_card.card_power){
                     this.numOfCardsOnTable += 2;
+                    this.player02_score++;
+                    document.getElementById('player02_points').innerHTML = "Points = " +  this.player02_score;
                     this.cardsOnTable.push(player_one_card, player_two_card);
                     console.log(" ################################### This are the cards on the table right now: " + this.cardsOnTable);
                     this.player02_cards = this.player02_cards.concat(this.cardsOnTable);
                     console.log("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ This are the cards that " + this.player02_name + " now has: " + this.player02_cards);
                     this.cardsOnTable = [];
                     this.numOfCardsOnTable = 0;
+                    document.getElementById('playerscore').innerHTML = "Cards remaining = " + this.player01_cards.length;
+                    document.getElementById('npcscore').innerHTML = "Cards remaining = " + this.player02_cards.length;
                     console.log(this.player02_name + " wins this round " +  "now has "  + this.player02_cards.length + " cards");
+                    document.getElementById('winner').innerHTML = this.player02_name;
+                    // document.getElementById('winner').innerHTML = this.player02_name + "\n" + "WINS";
 
                 }
                             
@@ -177,12 +189,10 @@ class War{
                 if(this.player01_cards.length === cardsDeckSize){
                     this.player01_score += 1;
                     this.winner = this.player01_name;
-                    // document.getElementById('draw_button').onclick = null;
                     console.log("THE WINNER OF THIS BATTLE IS: " + "\"\"\" " + this.winner + " \"\"\"" );
                 }else if (this.player02_cards.length === cardsDeckSize){
                     this.player02_score += 1;
                     this.winner = this.player02_name;
-                    // document.getElementById('draw_button').onclick = null;
                     console.log("THE WINNER OF THIS BATTLE IS: " + "\"\"\" " + this.winner + " \"\"\"" );
                 }
 
@@ -190,7 +200,8 @@ class War{
                 console.log("#################### " + this.player02_name + "'s CURRENT SCORE IS " + this.player02_score + " ####################");
 
             }
-        // }
+        
+    
 
 }
 
@@ -204,35 +215,59 @@ class Player {
       this.name = name;
       this.playerSet = pl_set; //pl_set === player's set of cards
     };
-
 }
 
 // Class the defines object Card, its attributes and methods
 class Card{
-    constructor(value, suit, power){
+    constructor(value, suit, power, imgFileName){
       this.card_value = value;
       this.card_suit = suit;
       this.card_power = power;
+      this.imgFileName = imgFileName;
     };
 }
-
 // Class the defines object Deck, its attributes and methods
 class Deck{
     constructor(deck){
         this.deck = deck;
     };
 }  
-
-
 // Declares two new variables, to them make them instances of their respective classes
 let card;
 let deck;
+
+// Array to then add filenames to objects Card
+let arrayFileNames = [];
+
+// Creates array with files images files names to letter add them to onject card
+(function() {
+
+    let fileName = "";
+    // let arrayFileNames = [];
+
+    const SUITS = ['H', 'S', 'C', 'D'];
+    const VALUES = ['A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K'];
+
+    for (let suit in SUITS) {
+        for (let value in VALUES) {
+            fileName = "" + VALUES[value];
+            fileName = fileName + SUITS[suit];
+            fileName = fileName + ".jpg";
+            console.log(fileName);
+            arrayFileNames.push(fileName);
+
+            fileName = "";
+        };
+    }
+    // console.log(arrayFileNames);
+      
+})();
 
 
 
 //Anonymous function to creates the object deck with a full set of objects cards
 (function() {
-
+    let i = 0;
     let arrayCards = [];
     const SUITS = ['Hearts', 'Spades', 'Clubs', 'Diamonds'];
     const VALUES = ['Ace', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'Jack', 'Queen', 'King'];
@@ -240,6 +275,7 @@ let deck;
     for (let suit in SUITS) {
         for (let value in VALUES) {
             let power = 0;
+            let fileName = "";
             if(VALUES[value] === 'Ace'){
                 power = 14;
             }else if(VALUES[value] === 'Jack'){
@@ -251,20 +287,18 @@ let deck;
             }else{
                 power = VALUES[value];
             }
-            card = new Card(VALUES[value], SUITS[suit], power);
+            fileName = arrayFileNames[i];
+            i++;
+            card = new Card(VALUES[value], SUITS[suit], power, fileName);
             // console.log(card);
             // console.log(arrayCards);
             arrayCards.push(card);
         };
     }
     deck = new Deck(arrayCards);
-    // console.log(deck);
+    console.log(deck);
       
 })();
-
- 
-
-console.log(deck.deck);
 
 console.log("######################################################################");
 
@@ -273,16 +307,18 @@ console.log("###################################################################
     console.log("############ This are the values for the war #############");
     console.log("##########################################################");
     console.log("");
-    let newWar01;
-    console.log(newWar01);
-    // console.log(newWar01.battle());
+    let newWar00;
+    // console.log(newWar00);
+    // console.log(newWar00.battle());
     let newGame01;
 
 // This is the function called with PLAY! button, here is where the game gets started, main objects are created like Games, War, Players 
 // and then objects Card are dealt to the players.
-
 function letsPlay(){ 
-    newGame01 = undefined;
+    document.getElementById("player01_card").src= "JPEG/blue_back.jpg";
+    document.getElementById("player02_card").src= "JPEG/blue_back.jpg";
+    hideHTML('animation01');
+    // newGame01 = undefined;
     newGame01 = new Games("war1", 1);
     console.log("newGame01 values are:");
     console.log(newGame01);
@@ -304,6 +340,8 @@ function letsPlay(){
     console.log(player01.name);
     console.log(player01.playerSet);
     console.log(player01.score);
+    document.getElementById('player01').innerHTML = player01.name;
+    document.getElementById('player01').innerHTML = player01.name;
 
 
     //Creates new player named Joda
@@ -312,19 +350,13 @@ function letsPlay(){
     console.log(player02.name);
     console.log(player02.playerSet);
     console.log(player02.score);
+    document.getElementById('player02').innerHTML = player02.name;
+    document.getElementById('player02').innerHTML = player02.name;
 
-    // console.log("##########################################################");
-    // console.log("############ This are the values for the war #############");
-    // console.log("##########################################################");
-    // console.log("");
-    // let newWar01 = new War(player01, player02);
-    // console.log(newWar01);
-    // console.log(newWar01.battle());
-    newWar01 = new War(player01, player02, true);
-
-    // Reactivates DRAW button for new PLAY
-    // document.getElementById('draw_button').onclick = ;
-
+    
+    newWar00 = new War(player01, player02, true);
+    console.log("This is newWar00:");
+    console.log(newWar00);
 
 
     let playerScore1 = document.getElementById("playerscore");
@@ -336,8 +368,17 @@ function letsPlay(){
 }
 
 function drawButtonOutFunct(){
-    newWar01.drawButton();
+    newWar00.drawButton();
 }
+
+function hideHTML(id) {
+    var x = document.getElementById(id);
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    };
+  }
 
 
 

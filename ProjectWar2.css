@@ -48,6 +48,20 @@ body {
   right: -36.5rem;
 }
 
+.refresButton{
+  position: relative;
+  background-color: rgb(13, 5, 128);
+  color: white;
+  border: rgb(244, 255, 179) solid 1px;
+  border-radius: 5px;
+  text-align: center;
+  width: 7.5rem;
+  font-size: x-large;
+  top: -8rem;
+  right: -36.5rem;
+}
+
+
 .shuffleButton {
   position: relative;
   background-color: rgb(163, 56, 56);

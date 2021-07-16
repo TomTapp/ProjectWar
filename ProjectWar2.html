@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
+    <linkst
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
@@ -55,19 +55,20 @@
       <!-- Header and Text -->
 
       <!-- Shuffle Button -->
-      <row>
+      <!-- <row>
         <column>
           <div class="shuffleButton" type="button">Shuffle!</div>
         </column>
-      </row>
+      </row> -->
       <!-- Shuffle Button -->
 
       <!-- player card box -->
       <row class="cardBox">
         <column style="text-align: center" class="card">
-          <h3>Player</h3>
+          <h3 id="player01"></h3>
+          <h5 id="player01_points"></h5>
           <h6 id="playerscore"></h6>
-          <h6>Players Deck</h6>
+          <!-- <h6>Players Deck</h6> -->
           <img src="JPEG/blue_back.jpg" alt="card back" width="200px" />
         </column>
         <!-- player card box -->
@@ -75,63 +76,88 @@
         <!-- The War Zone -->
         <column class="card">
           <h3 style="text-align: center">The War Zone</h3>
+          <!-- <h3 id="playerName01" style="text-align: center"></h3> -->
 
-          <img src="JPEG/blue_back.jpg" alt="card back" width="200px" />
+          <img id="player01_card" src="JPEG/blue_back.jpg" alt="card back" width="200px" />
 
-          <img src="JPEG/blue_back.jpg" alt="card back" width="200px" />
+          <img id="player02_card"src="JPEG/blue_back.jpg" alt="card back" width="200px" />
+
+          <!-- <h3 id="playerName02" style="text-align: center"></h3> -->
+          <!-- <h3 id="result" style="text-align: center"></h3> -->
+          <h3 id="winner" style="text-align: center"></h3>
+          <h3 id="round" style="text-align: center"></h3>
         </column>
         <!-- The War Zone -->
 
         <!-- computer card box -->
         <column style="text-align: center" class="card">
-          <h3>Computer</h3>
+          <h3 id="player02"></h3>
+          <h5 id="player02_points"></h5>
           <h6 id="npcscore"></h6>
-          <h6>Computers Deck</h6>
+          <!-- <h6>Computers Deck</h6> -->
           <img src="JPEG/blue_back.jpg" alt="card back" width="200px" />
         </column>
       </row>
       <!-- computer card box -->
 
-      <!-- Draw Button -->
-      <row>
-        <column>
-          <div
-            id = "draw_button"
-            class="drawButton"
-            type="button"
-            onclick="drawButtonOutFunct()"
-          >
-            Draw!
-          </div>
-        </column>
-      </row>
-      <!-- Draw Button -->
-
-      <!-- Draw Button -->
-      <row>
-        <column>
-          <div
-            class="drawButton"
-            type="button"
-            onclick="letsPlay()"
-          >
-            PLAY!
-          </div>
-        </column>
-      </row>
-      <!-- Draw Button -->
-
-
+      
       <!-- Shuffle Animation -->
-      <span class="animation1">
-        <img src="JPEG/AD.jpg" alt="a playing card" width="200px" />
-      </span>
+      <div id="animation01">
+        <span class="animation1">
+          <img id="player01_card" src="JPEG/AD.jpg" alt="a playing card" width="200px" />
+        </span>
 
-      <span class="animation2">
-        <img src="JPEG/4S.jpg" alt="a playing card" width="200px" />
-      </span>
+        <span class="animation2">
+          <img id="player02_card" src="JPEG/4S.jpg" alt="a playing card" width="200px" />
+        </span>
+      </div>
     </div>
     <!-- Shuffle Animation -->
+
+
+    <!-- Draw Button -->
+    <row>
+      <column>
+        <div
+          class="drawButton"
+          type="button"
+          onclick="drawButtonOutFunct()"
+        >
+          Draw!
+        </div>
+      </column>
+    </row>
+    <!-- Draw Button -->
+
+    <!-- Play Button -->
+    <row>
+      <column>
+        <div
+          class="drawButton"
+          type="button"
+          onclick="letsPlay()"
+        >
+          PLAY!
+        </div>
+      </column>
+    </row>
+    <!-- Play Button -->
+
+    <!-- Reset Button -->
+    <row>
+      <column>
+        <div 
+          class="refresButton" 
+          type="button"
+          onClick="window.location.href=window.location.href"
+          >
+          START OVER
+        </div>
+      </column>
+    </row>
+    <!-- Reset Button -->
+
+
 
     <script src="assets/ProjectWar.js"></script>
     <script
