@@ -9,22 +9,22 @@
 
 //
 
-class Game{
+// Class the defines object Games, its attributes and methods, this is the main class of the program and it was designed
+// to later become he super class of other new games.
+class Games{
     gameName = "";
     decksNumber = 0;
-    cardsDeck = [1, 2, 3, 4];
+    cardsDeck = deck.deck;
     oppot01_Cards = [];
     oppot02_Cards = [];
 
     constructor(gameName, number){
         this.gameName = gameName;
         this.decksNumber = number;
-        // this.oppot01_Cards = oppot01_Cards;
-        // this.oppot02_Cards = oppot02_Cards;
     }
 
 
-
+    // Here is where the amount of decks of cards required is defined.
     deckForGame = function(num){
         let newDeck = [];
         for(let i = 0; i < num; i++) {
@@ -35,7 +35,7 @@ class Game{
     }
 
 
-        //The method shuffle belongs to to class Game because may different games may require this function
+        //The method shuffle belongs to to class Games because may different games may require this function
         shuffle =  function(deck2020) {
             // Creates  a collection of cards conformed of the amount of decks based on the amount of players
             let currentDeckSize = deck2020.length;
@@ -56,7 +56,7 @@ class Game{
             return deck2020;
           }
 
-
+          // Function to deal the cards to players
           dealCards = function(newSetOfCards){
               for (let i = 0; i<newSetOfCards.length; i++){
                   console.log(newSetOfCards.length);
@@ -71,7 +71,7 @@ class Game{
 
 
 
-
+// Class the defines object War and its attributes and methods.
 class War{
     name = "War";
     player01_name;
@@ -96,11 +96,6 @@ class War{
         this.player02_score = player02.score;
         this.clickEnabled = booleamParam;
         }
-     
-
-
-    
-    
     
     drawButton = function(){
         if (this.clickEnabled === true){
@@ -114,7 +109,7 @@ class War{
 
     battle = function(player_one_card, player_two_card){  
 
-
+        
         // if (this.clickEnabled === true){
 
     
@@ -132,7 +127,7 @@ class War{
                 console.log("Cards of " + this.player02_name + " after putting the card on the table " + this.player02_cards);
             
             
-                if(player_one_card === player_two_card){
+                if(player_one_card.card_power === player_two_card.card_power){
                     this.numOfCardsOnTable += 2;
                     this.cardsOnTable.push(player_one_card, player_two_card);
                     console.log(" ################################### This are the cards on the table right now: " + this.cardsOnTable);
@@ -140,7 +135,7 @@ class War{
                     console.log("This are the cards on the table right now: " + this.cardsOnTable);
                     console.log("TIE");
                 
-                }else if(player_one_card > player_two_card){
+                }else if(player_one_card.card_power > player_two_card.card_power){
                     this.numOfCardsOnTable += 2;
                     this.cardsOnTable.push(player_one_card, player_two_card);
                     console.log(" ################################### This are the cards on the table right now: " + this.cardsOnTable);
@@ -150,7 +145,7 @@ class War{
                     this.numOfCardsOnTable = 0;
                     console.log(this.player01_name + " wins this round! " +  "now has "  + this.player01_cards.length + " cards");
                 
-                }else if(player_one_card < player_two_card){
+                }else if(player_one_card.card_power < player_two_card.card_power){
                     this.numOfCardsOnTable += 2;
                     this.cardsOnTable.push(player_one_card, player_two_card);
                     console.log(" ################################### This are the cards on the table right now: " + this.cardsOnTable);
@@ -191,27 +186,28 @@ class War{
                     console.log("THE WINNER OF THIS BATTLE IS: " + "\"\"\" " + this.winner + " \"\"\"" );
                 }
 
+                console.log("#################### " + this.player01_name + "'s CURRENT SCORE IS " + this.player01_score + " ####################");
+                console.log("#################### " + this.player02_name + "'s CURRENT SCORE IS " + this.player02_score + " ####################");
+
             }
         // }
 
 }
 
 
-
+// Class the defines object Player, its attributes and methods
 class Player {
     name = "";
     playerSet = []
     score = 0;
     constructor(name, pl_set) {
       this.name = name;
-      this.playerSet = pl_set;
+      this.playerSet = pl_set; //pl_set === player's set of cards
     };
 
 }
 
-
-
-
+// Class the defines object Card, its attributes and methods
 class Card{
     constructor(value, suit, power){
       this.card_value = value;
@@ -219,10 +215,56 @@ class Card{
       this.card_power = power;
     };
 }
+
+// Class the defines object Deck, its attributes and methods
+class Deck{
+    constructor(deck){
+        this.deck = deck;
+    };
+}  
+
+
+// Declares two new variables, to them make them instances of their respective classes
+let card;
+let deck;
+
+
+
+//Anonymous function to creates the object deck with a full set of objects cards
+(function() {
+
+    let arrayCards = [];
+    const SUITS = ['Hearts', 'Spades', 'Clubs', 'Diamonds'];
+    const VALUES = ['Ace', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'Jack', 'Queen', 'King'];
+
+    for (let suit in SUITS) {
+        for (let value in VALUES) {
+            let power = 0;
+            if(VALUES[value] === 'Ace'){
+                power = 14;
+            }else if(VALUES[value] === 'Jack'){
+                power = 11;
+            }else if(VALUES[value] === 'Queen'){
+                power = 12;
+            }else if(VALUES[value] === 'King'){
+                power = 13;
+            }else{
+                power = VALUES[value];
+            }
+            card = new Card(VALUES[value], SUITS[suit], power);
+            // console.log(card);
+            // console.log(arrayCards);
+            arrayCards.push(card);
+        };
+    }
+    deck = new Deck(arrayCards);
+    // console.log(deck);
+      
+})();
+
  
 
-
-
+console.log(deck.deck);
 
 console.log("######################################################################");
 
@@ -234,23 +276,26 @@ console.log("###################################################################
     let newWar01;
     console.log(newWar01);
     // console.log(newWar01.battle());
-    let newGame;
+    let newGame01;
+
+// This is the function called with PLAY! button, here is where the game gets started, main objects are created like Games, War, Players 
+// and then objects Card are dealt to the players.
 
 function letsPlay(){ 
-    newGame = undefined;
-    newGame = new Game("war1", 2);
-    console.log("newGame values are:");
-    console.log(newGame);
+    newGame01 = undefined;
+    newGame01 = new Games("war1", 1);
+    console.log("newGame01 values are:");
+    console.log(newGame01);
 
-    let toShuffle = newGame.deckForGame(2);
+    let toShuffle = newGame01.deckForGame(1);
     console.log("The decks to shuffle are:");
     console.log(toShuffle);
-    let shuffled = newGame.shuffle(toShuffle);
+    let shuffled = newGame01.shuffle(toShuffle);
     console.log("The new deck of cards for the game completely shuffled looks like:");
     console.log(shuffled);
 
 
-    let indiviualSets =  newGame.dealCards(shuffled);
+    let indiviualSets =  newGame01.dealCards(shuffled);
     console.log(indiviualSets);
 
     //Creates new player named Luke
