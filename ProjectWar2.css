@@ -2,8 +2,8 @@ body {
   background-image: url("table.jpeg");
   background-color: rgb(0, 0, 0);
   background-repeat: no-repeat;
-  background-size:1400px auto;
-  background-position: 50% 50% ;
+  background-size: 1400px auto;
+  background-position: 50% 50%;
   margin: -20rem 0rem;
   padding: 0rem 0rem;
 }
@@ -70,7 +70,7 @@ body {
   position: relative;
   animation-name: shiftRight;
   animation-fill-mode: forwards;
-  animation-duration: 1s;
+  animation-duration: 1.2s;
   animation-timing-function: linear;
   display: flex;
   justify-content: center;
@@ -79,12 +79,20 @@ body {
 
 @keyframes shiftRight {
   0% {
-    left: -30rem;
+    left: -31.1rem;
     top: -20.5rem;
+    opacity: 0%;
+  }
+  70% {
+    left: -31.1rem;
+    top: -28.5rem;
+    opacity: 100%;
+    transform: rotate(-10deg);
   }
   100% {
     left: -6.4rem;
     top: -20.5rem;
+    transform: rotate(180deg);
   }
 }
 
@@ -92,7 +100,7 @@ body {
   position: relative;
   animation-name: shiftLeft;
   animation-fill-mode: forwards;
-  animation-duration: 1s;
+  animation-duration: 1.2s;
   animation-timing-function: linear;
   display: flex;
   justify-content: center;
@@ -103,9 +111,17 @@ body {
   0% {
     left: 31rem;
     top: -39.6rem;
+    opacity: 0%;
+  }
+  70% {
+    left: 31rem;
+    top: -47.6rem;
+    opacity: 100%;
+    transform: rotate(10deg);
   }
   100% {
     left: 6.4rem;
     top: -39.6rem;
+    transform: rotate(-180deg);
   }
 }
