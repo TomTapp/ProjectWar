@@ -1,12 +1,11 @@
 body {
   background-image: url("table.jpeg");
-  background-color: black;
+  background-color: rgb(0, 0, 0);
   background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  margin: 0rem;
-  padding: 0rem;
-  border: 2rem rgb(0, 0, 0) solid;
+  background-size:1400px auto;
+  background-position: 50% 50% ;
+  margin: -20rem 0rem;
+  padding: 0rem 0rem;
 }
 
 .cardBox {

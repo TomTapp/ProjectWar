@@ -107,17 +107,6 @@ class War {
       "THE SIZE OF THE DECK OF CARDS IS: " + cardsDeckSize + " CARDS"
     );
 
-
-
-
-
-
-
-
-
-
-
-
     console.log(
       "Cards of " +
         this.player01_name +
@@ -137,8 +126,6 @@ class War {
         this.player01_cards
     );
 
-
-
     console.log(
       "Cards of " +
         this.player02_name +
@@ -157,17 +144,6 @@ class War {
         " after putting the card on the table " +
         this.player02_cards
     );
-
-
-
-
-
-
-
-
-
-
-
 
     if (player_one_card.card_power === player_two_card.card_power) {
       this.numOfCardsOnTable += 2;
@@ -408,11 +384,21 @@ let newGame01;
 function letsPlay() {
   document.getElementById("player01_card").src = "JPEG/blue_back.jpg";
   document.getElementById("player02_card").src = "JPEG/blue_back.jpg";
-  hideHTML("animation01");
   // newGame01 = undefined;
   newGame01 = new Games("war1", 1);
   console.log("newGame01 values are:");
   console.log(newGame01);
+
+  // when Start is clicked, gives baseline to the round number and player scores
+  document.getElementById("round").innerHTML = "ROUND # ";
+
+  document.getElementById("player01_points").innerHTML = "Points = ";
+
+  document.getElementById("player02_points").innerHTML = "Points = ";
+
+  document.getElementById("winner").innerHTML =
+    "Who will win?";
+  // when Start is clicked, gives baseline to the round number and player scores
 
   let toShuffle = newGame01.deckForGame(1);
   console.log("The decks to shuffle are:");
@@ -479,4 +465,3 @@ function hideHTML(id) {
 }
 
 // //////////////////////////////////////////////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-
