@@ -23,34 +23,34 @@
 
     <title>Project War</title>
   </head>
-  <body style="font-family: 'Montserrat', sans-serif">
+  <body style="font-family: 'Montserrat', sans-serif; font-size: large">
     <div class="container">
       <!-- Header and Text -->
-      <div class="pageText" style="margin: 0% 10%">
+      <div class="pageText">
         <h1>WAR!</h1>
         <h2>The objective of WAR is to collect all of the cards:</h2>
         <br />
-        <h4 style="text-align: left">
+        <h4>
           Step 1. Shuffle the deck, distribute the cards evenly between 2-4
           players.
         </h4>
-        <h4 style="text-align: left">
+        <h4>
           Step 2. All players play their top card face up then all cards are
           compared.
         </h4>
-        <h4 style="text-align: left">
+        <h4>
           Step 3. The player with the highest card collects all cards played
           that round into their own shuffle pile.
         </h4>
         <br />
-        <h6 style="text-align: left">
+        <h5>
           Note: If there is a tie, the tying players place three cards face down
           then repeat step 2 & 3.
-        </h6>
-        <h6 style="text-align: left">
+        </h5>
+        <h5>
           Note: When you run out of cards in your draw pile, shuffle your
           shuffle pile and it becomes your draw pile.
-        </h6>
+        </h5>
       </div>
       <!-- Header and Text -->
 
@@ -76,16 +76,24 @@
         <!-- The War Zone -->
         <column class="card">
           <h3 style="text-align: center">The War Zone</h3>
+          <h3 id="round" style="text-align: center"></h3>
+          <h3 id="winner" style="text-align: center"></h3>
+
           <!-- <h3 id="playerName01" style="text-align: center"></h3> -->
 
-          <img id="player01_card" src="JPEG/blue_back.jpg" alt="card back" width="200px" />
+          <img
+            id="cardOnTable_01"
+            src="JPEG/blue_back.jpg"
+            alt="card back"
+            width="200px"
+          />
 
-          <img id="player02_card"src="JPEG/blue_back.jpg" alt="card back" width="200px" />
-
-          <!-- <h3 id="playerName02" style="text-align: center"></h3> -->
-          <!-- <h3 id="result" style="text-align: center"></h3> -->
-          <h3 id="winner" style="text-align: center"></h3>
-          <h3 id="round" style="text-align: center"></h3>
+          <img
+            id="cardOnTable_02"
+            src="JPEG/blue_back.jpg"
+            alt="card back"
+            width="200px"
+          />
         </column>
         <!-- The War Zone -->
 
@@ -100,64 +108,70 @@
       </row>
       <!-- computer card box -->
 
-      
-      <!-- Shuffle Animation -->
+      <!-- Animation -->
+
       <div id="animation01">
         <span class="animation1">
-          <img id="player01_card" src="JPEG/AD.jpg" alt="a playing card" width="200px" />
+          <img
+            id="player01_card"
+            src="JPEG/blue_back.jpg"
+            alt="a playing card"
+            width="200px"
+          />
         </span>
 
         <span class="animation2">
-          <img id="player02_card" src="JPEG/4S.jpg" alt="a playing card" width="200px" />
+          <img
+            id="player02_card"
+            src="JPEG/blue_back.jpg"
+            alt="a playing card"
+            width="200px"
+          />
         </span>
       </div>
     </div>
-    <!-- Shuffle Animation -->
 
+    <!-- Animation -->
 
     <!-- Draw Button -->
-    <row>
-      <column>
-        <div
-          class="drawButton"
-          type="button"
-          onclick="drawButtonOutFunct()"
-        >
-          Draw!
-        </div>
-      </column>
+    <row class="buttonPlacement">
+      <div
+        id="lowerButtons"
+        class="drawButton"
+        type="button"
+        onclick="drawButtonOutFunct()"
+      >
+        Draw!
+      </div>
     </row>
     <!-- Draw Button -->
 
     <!-- Play Button -->
-    <row>
-      <column>
-        <div
-          class="drawButton"
-          type="button"
-          onclick="letsPlay()"
-        >
-          PLAY!
-        </div>
-      </column>
+    <row class="buttonPlacement">
+      <div
+        id="lowerButtons"
+        class="drawButton"
+        type="button"
+        onclick="letsPlay()"
+      >
+        Start!
+      </div>
     </row>
+
     <!-- Play Button -->
 
     <!-- Reset Button -->
-    <row>
-      <column>
-        <div 
-          class="refresButton" 
-          type="button"
-          onClick="window.location.href=window.location.href"
-          >
-          START OVER
-        </div>
-      </column>
+    <row class="buttonPlacement">
+      <div
+        id="lowerButtons"
+        class="refreshButton"
+        type="button"
+        onClick="window.location.href=window.location.href"
+      >
+        RESET
+      </div>
     </row>
     <!-- Reset Button -->
-
-
 
     <script src="assets/ProjectWar.js"></script>
     <script
