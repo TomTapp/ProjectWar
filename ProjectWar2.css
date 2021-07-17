@@ -66,7 +66,14 @@ body {
   border-radius: 5px;
   height: 2rem;
   margin: 1rem 0rem;
-  transition-duration: .4s;
+  transition-duration: .1s;
+  box-shadow: 0 5px rgb(109, 109, 109);
+  cursor: pointer;
+}
+
+#lowerButtons:active {
+  transform: translateY(5px);
+  box-shadow: 0 3px rgb(71, 71, 71);
 }
 
 .buttonPlacement {
