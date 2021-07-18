@@ -154,7 +154,7 @@ class War {
       this.numOfCardsOnTable += 2;
       this.cardsOnTable.push(player_one_card, player_two_card);
       console.log(
-        "########## This are the cards on the table right now: ".toLocaleUpperCase() +
+        "########## These are the cards on the table right now: ".toLocaleUpperCase() +
         "\"" + cardOnTable_01.card_value + " of " + cardOnTable_01.card_suit + " & " +
         cardOnTable_02.card_value + " of " + cardOnTable_02.card_suit + "\"" +
         " ##########"
@@ -163,7 +163,7 @@ class War {
         "The number of cards on the table is: ".toLocaleUpperCase() + this.numOfCardsOnTable
       );
       console.log(
-        "This are the cards on the table right now: ".toLocaleUpperCase() + 
+        "These are the cards on the table right now: ".toLocaleUpperCase() + 
         "\"" + cardOnTable_01.card_value + " of " + cardOnTable_01.card_suit + "\" & \"" +
         cardOnTable_02.card_value + " of " + cardOnTable_02.card_suit + "\""
       );
@@ -177,7 +177,7 @@ class War {
         "Points = " + this.player01_score;
       this.cardsOnTable.push(player_one_card, player_two_card);
       console.log(
-        "########## This are the cards on the table right now: ".toLocaleUpperCase() +
+        "########## These are the cards on the table right now: ".toLocaleUpperCase() +
         "\"" + cardOnTable_01.card_value + " of " + cardOnTable_01.card_suit + "\" & \"" +
         cardOnTable_02.card_value + " of " + cardOnTable_02.card_suit + "\"" +
         " ##########"
@@ -185,7 +185,7 @@ class War {
       );
       this.player01_cards = this.player01_cards.concat(this.cardsOnTable);
       console.log(
-        "\nThis are the cards that \"".toLocaleUpperCase() +
+        "\nThese are the cards that \"".toLocaleUpperCase() +
           this.player01_name.toLocaleUpperCase() + "\"" +
           " now has: \n".toLocaleUpperCase()
       );
@@ -213,14 +213,14 @@ class War {
         "Points = " + this.player02_score;
       this.cardsOnTable.push(player_one_card, player_two_card);
       console.log(
-        "########## This are the cards on the table right now: ".toLocaleUpperCase() +
+        "########## These are the cards on the table right now: ".toLocaleUpperCase() +
         "\"" + cardOnTable_01.card_value + " of " + cardOnTable_01.card_suit + "\" & \"" +
         cardOnTable_02.card_value + " of " + cardOnTable_02.card_suit + "\"" +
         " ##########"
       );
       this.player02_cards = this.player02_cards.concat(this.cardsOnTable);
       console.log(
-        "\nThis are the cards that \"".toLocaleUpperCase() +
+        "\nThese are the cards that \"".toLocaleUpperCase() +
           this.player02_name.toLocaleUpperCase() + "\"" +
           " now has: \n".toLocaleUpperCase()
       );
@@ -386,7 +386,7 @@ let arrayFileNames = [];
 // );
 
 console.log("##########################################################");
-console.log("############ This are the values for the war #############");
+console.log("############ These are the values for the war #############");
 console.log("##########################################################");
 console.log("");
 let newWar00;
