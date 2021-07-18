@@ -95,7 +95,8 @@ class War {
     if (this.clickEnabled === true) {
       this.battle(this.player01_cards[0], this.player02_cards[0]);
       this.drawCounter++;
-      console.log("ROUND NUMBER: '' " + this.drawCounter);
+      console.log("ROUND NUMBER: \"" + this.drawCounter + "\"\n");
+      console.log("____________________________________________________________________________________________________");
       document.getElementById("round").innerHTML =
         "ROUND # " + this.drawCounter;
     }
@@ -108,55 +109,63 @@ class War {
     );
 
     console.log(
-      "Cards of " +
-        this.player01_name +
-        " before putting a card on the table " +
-        this.player01_cards
-    );
+      "\nCards of ".toLocaleUpperCase() + "\"" +
+        this.player01_name.toLocaleUpperCase() + "\"" +
+        " before putting a card on the table: \n ".toLocaleUpperCase() 
+        );
+        printCardsValuesSuits(this.player01_cards)
+
     let cardOnTable_01 = this.player01_cards.shift();
     console.log(
-      this.player01_name + " just put this card on the table: " + cardOnTable_01
+    "$$$$$$$$$$$$$$$$$$$$ " + "\"" + this.player01_name.toLocaleUpperCase() + "\"" + " just put this card on the table: ".toLocaleUpperCase() + 
+    "\"" + cardOnTable_01.card_value + " of " + cardOnTable_01.card_suit + "\"" 
     );
     document.getElementById("player01_card").src =
       "JPEG/" + player_one_card.imgFileName;
     console.log(
-      "Cards of " +
-        this.player01_name +
-        " after putting the card on the table " +
-        this.player01_cards
+      "Cards of ".toLocaleUpperCase() + "\"" +
+        this.player01_name.toLocaleUpperCase() + "\"" +
+        " after putting the card on the table: \n ".toLocaleUpperCase() 
     );
+    printCardsValuesSuits(this.player01_cards)
 
     console.log(
-      "Cards of " +
-        this.player02_name +
-        " before putting a card on the table " +
-        this.player02_cards
+      "\nCards of ".toLocaleUpperCase() + "\"" +
+        this.player02_name.toLocaleUpperCase() + "\"" +
+        " before putting a card on the table: \n".toLocaleUpperCase() 
     );
+    printCardsValuesSuits(this.player02_cards)
+
     let cardOnTable_02 = this.player02_cards.shift();
     console.log(
-      this.player02_name + " just put this card on the table: " + cardOnTable_02
+    "$$$$$$$$$$$$$$$$$$$$ " + "\"" + this.player02_name.toLocaleUpperCase() + "\"" + " just put this card on the table: ".toLocaleUpperCase() + 
+      "\"" + cardOnTable_02.card_value + " of " + cardOnTable_02.card_suit + "\""
     );
     document.getElementById("player02_card").src =
       "JPEG/" + player_two_card.imgFileName;
     console.log(
-      "Cards of " +
-        this.player02_name +
-        " after putting the card on the table " +
-        this.player02_cards
+      "Cards of ".toLocaleUpperCase() + "\"" +
+        this.player02_name + "\"" +
+        " after putting the card on the table: \n".toLocaleUpperCase()
     );
+    printCardsValuesSuits(this.player02_cards)
 
     if (player_one_card.card_power === player_two_card.card_power) {
       this.numOfCardsOnTable += 2;
       this.cardsOnTable.push(player_one_card, player_two_card);
       console.log(
-        " ################################### This are the cards on the table right now: " +
-          this.cardsOnTable
+        "########## This are the cards on the table right now: ".toLocaleUpperCase() +
+        "\"" + cardOnTable_01.card_value + " of " + cardOnTable_01.card_suit + " & " +
+        cardOnTable_02.card_value + " of " + cardOnTable_02.card_suit + "\"" +
+        " ##########"
       );
       console.group(
-        "The number of cards on the table is: " + this.numOfCardsOnTable
+        "The number of cards on the table is: ".toLocaleUpperCase() + this.numOfCardsOnTable
       );
       console.log(
-        "This are the cards on the table right now: " + this.cardsOnTable
+        "This are the cards on the table right now: ".toLocaleUpperCase() + 
+        "\"" + cardOnTable_01.card_value + " of " + cardOnTable_01.card_suit + "\" & \"" +
+        cardOnTable_02.card_value + " of " + cardOnTable_02.card_suit + "\""
       );
       console.log("TIE");
       document.getElementById("winner").innerHTML = "It's a tie!";
@@ -168,16 +177,19 @@ class War {
         "Points = " + this.player01_score;
       this.cardsOnTable.push(player_one_card, player_two_card);
       console.log(
-        " ################################### This are the cards on the table right now: " +
-          this.cardsOnTable
+        "########## This are the cards on the table right now: ".toLocaleUpperCase() +
+        "\"" + cardOnTable_01.card_value + " of " + cardOnTable_01.card_suit + "\" & \"" +
+        cardOnTable_02.card_value + " of " + cardOnTable_02.card_suit + "\"" +
+        " ##########"
+        // this.cardsOnTable.card_value + " of " + this.cardsOnTable.card_suit
       );
       this.player01_cards = this.player01_cards.concat(this.cardsOnTable);
       console.log(
-        "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ This are the cards that " +
-          this.player01_name +
-          " now has: " +
-          this.player01_cards
+        "\nThis are the cards that \"".toLocaleUpperCase() +
+          this.player01_name.toLocaleUpperCase() + "\"" +
+          " now has: \n".toLocaleUpperCase()
       );
+      printCardsValuesSuits(this.player01_cards)
       this.cardsOnTable = [];
       this.numOfCardsOnTable = 0;
       document.getElementById("playerscore").innerHTML =
@@ -185,11 +197,11 @@ class War {
       document.getElementById("npcscore").innerHTML =
         "Cards remaining = " + this.player02_cards.length;
       console.log(
-        this.player01_name +
-          " wins this round! " +
+        "\n\"" + this.player01_name.toLocaleUpperCase() + "\"" +
+          " wins this round! ".toLocaleUpperCase() +
           "now has " +
           this.player01_cards.length +
-          " cards"
+          " cards".toLocaleUpperCase()
       );
       // document.getElementById('winner').innerHTML = this.player01_name;
       document.getElementById("winner").innerHTML =
@@ -201,16 +213,19 @@ class War {
         "Points = " + this.player02_score;
       this.cardsOnTable.push(player_one_card, player_two_card);
       console.log(
-        " ################################### This are the cards on the table right now: " +
-          this.cardsOnTable
+        "########## This are the cards on the table right now: ".toLocaleUpperCase() +
+        "\"" + cardOnTable_01.card_value + " of " + cardOnTable_01.card_suit + "\" & \"" +
+        cardOnTable_02.card_value + " of " + cardOnTable_02.card_suit + "\"" +
+        " ##########"
       );
       this.player02_cards = this.player02_cards.concat(this.cardsOnTable);
       console.log(
-        "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ This are the cards that " +
-          this.player02_name +
-          " now has: " +
-          this.player02_cards
+        "\nThis are the cards that \"".toLocaleUpperCase() +
+          this.player02_name.toLocaleUpperCase() + "\"" +
+          " now has: \n".toLocaleUpperCase()
       );
+      printCardsValuesSuits(this.player02_cards)
+
       this.cardsOnTable = [];
       this.numOfCardsOnTable = 0;
       document.getElementById("playerscore").innerHTML =
@@ -218,11 +233,11 @@ class War {
       document.getElementById("npcscore").innerHTML =
         "Cards remaining = " + this.player02_cards.length;
       console.log(
-        this.player02_name +
-          " wins this round " +
-          "now has " +
+        "\n\"" + this.player02_name.toLocaleUpperCase() + "\"" +
+          " wins this round ".toLocaleUpperCase() +
+          "now has ".toLocaleUpperCase() +
           this.player02_cards.length +
-          " cards"
+          " cards".toLocaleUpperCase()
       );
       // document.getElementById('winner').innerHTML = this.player02_name;
       document.getElementById("winner").innerHTML =
@@ -250,13 +265,13 @@ class War {
       this.player01_score += 1;
       this.winner = this.player01_name;
       console.log(
-        "THE WINNER OF THIS BATTLE IS: " + '""" ' + this.winner + ' """'
+        "THE WINNER OF THIS BATTLE IS: " + '""" ' + this.winner.toLocaleUpperCase() + ' """'
       );
     } else if (this.player02_cards.length === cardsDeckSize) {
       this.player02_score += 1;
       this.winner = this.player02_name;
       console.log(
-        "THE WINNER OF THIS BATTLE IS: " + '""" ' + this.winner + ' """'
+        "THE WINNER OF THIS BATTLE IS: " + '""" ' + this.winner.toLocaleUpperCase() + ' """'
       );
     }
 
@@ -268,7 +283,7 @@ class War {
         " ####################"
     );
     console.log(
-      "#################### " +
+      "####################   " +
         this.player02_name +
         "'s CURRENT SCORE IS " +
         this.player02_score +
@@ -310,7 +325,7 @@ let deck;
 // Array to then add filenames to objects Card
 let arrayFileNames = [];
 
-// Creates array with files images files names to letter add them to onject card
+// Creates array with images_file_names to later add them to object card
 (function () {
   let fileName = "";
   // let arrayFileNames = [];
@@ -332,7 +347,7 @@ let arrayFileNames = [];
   // console.log(arrayFileNames);
 })();
 
-//Anonymous function to creates the object deck with a full set of objects cards
+//Anonymous function to create the object deck with a full set of objects cards
 (function () {
   let i = 0;
   let arrayCards = [];
@@ -366,9 +381,9 @@ let arrayFileNames = [];
   console.log(deck);
 })();
 
-console.log(
-  "######################################################################"
-);
+// console.log(
+//   "######################################################################"
+// );
 
 console.log("##########################################################");
 console.log("############ This are the values for the war #############");
@@ -386,7 +401,7 @@ function letsPlay() {
   document.getElementById("player02_card").src = "JPEG/blue_back.jpg";
   // newGame01 = undefined;
   newGame01 = new Games("war1", 1);
-  console.log("newGame01 values are:");
+  console.log("newGame01 values are:".toLocaleUpperCase());
   console.log(newGame01);
 
   // when Start is clicked, gives baseline to the round number and player scores
@@ -396,16 +411,15 @@ function letsPlay() {
 
   document.getElementById("player02_points").innerHTML = "Points = ";
 
-  document.getElementById("winner").innerHTML =
-    "Who will win?";
+  document.getElementById("winner").innerHTML = "Who will win?";
   // when Start is clicked, gives baseline to the round number and player scores
 
   let toShuffle = newGame01.deckForGame(1);
-  console.log("The decks to shuffle are:");
-  console.log(toShuffle);
+  // console.log("\nThe decks to shuffle are:".toLocaleUpperCase());
+  // console.log(toShuffle);
   let shuffled = newGame01.shuffle(toShuffle);
   console.log(
-    "The new deck of cards for the game completely shuffled looks like:"
+    "\nThe new deck of cards for the game completely shuffled looks like:".toLocaleUpperCase()
   );
   console.log(shuffled);
 
@@ -413,9 +427,9 @@ function letsPlay() {
   console.log(indiviualSets);
 
   //Creates new player named Player One
-  let player01 = new Player("Player One", indiviualSets[0]);
-  console.log("The name of player 1 is:");
-  console.log(player01.name);
+  let player01 = new Player("Player_One", indiviualSets[0]);
+  console.log("The name of player 1 is:".toLocaleUpperCase());
+  console.log(player01.name.toLocaleUpperCase());
   console.log(player01.playerSet);
   console.log(player01.score);
   document.getElementById("player01").innerHTML = player01.name;
@@ -423,16 +437,17 @@ function letsPlay() {
 
   //Creates new player named Computer
   let player02 = new Player("Computer", indiviualSets[1]);
-  console.log("The name of player 2 is:");
-  console.log(player02.name);
+  console.log("The name of player 2 is:".toLocaleUpperCase());
+  console.log(player02.name.toLocaleUpperCase());
   console.log(player02.playerSet);
   console.log(player02.score);
   document.getElementById("player02").innerHTML = player02.name;
   document.getElementById("player02").innerHTML = player02.name;
 
   newWar00 = new War(player01, player02, true);
-  console.log("This is newWar00:");
+  console.log("This is war1:".toLocaleUpperCase());
   console.log(newWar00);
+  console.log("____________________________________________________________________________________________________")
 
   let playerScore1 = document.getElementById("playerscore");
   playerScore1.innerText = "Cards remaining = " + player01.score;
@@ -441,6 +456,7 @@ function letsPlay() {
   playerScore2.innerText = "Cards remaining = " + player02.score;
 }
 
+//Function that calls method drawButton of class War
 function drawButtonOutFunct() {
   newWar00.drawButton();
   var x = document.getElementById("animation01");
@@ -455,6 +471,22 @@ function drawButtonOutFunct() {
   }
 }
 
+//Function to print value and suit of the cards.
+function printCardsValuesSuits(cards){
+  let longString = "";
+  for(let i = 0; i < cards.length; i++){
+    let carrierOne = cards[i];
+    longString += "\"" + cards[i].card_value + " of " + carrierOne.card_suit + "\", ";
+    if(i ===0){
+      continue
+    }else if(i%5 === 0){
+      longString += "\n";
+    }
+  }
+  console.log(longString);
+}
+
+// Function to hide initial animation
 function hideHTML(id) {
   var x = document.getElementById(id);
   if (x.style.display === "none") {
