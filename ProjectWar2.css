@@ -55,7 +55,7 @@ body {
 }
 
 
-#lowerButtons {
+.lowerButtons {
   display: flex;
   justify-content: center;
   position: relative;
@@ -71,7 +71,7 @@ body {
   cursor: pointer;
 }
 
-#lowerButtons:active {
+.lowerButtons:active {
   transform: translateY(5px);
   box-shadow: 0 3px rgb(71, 71, 71);
 }
